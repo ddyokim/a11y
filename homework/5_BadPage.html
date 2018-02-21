@@ -7,51 +7,64 @@
     <title>제목없음</title>
     <style>
       body {
-        width: 500px;
+        width: 80%;
         margin: auto;
         font-family: 'Nanum Gothic', sans-serif;
       }
       .blue {
-        background-color: #4285f4;
+        background-color: #67B26F;
       }
       .red {
-        background-color: #f4416b;
+        background-color: #3BAFA0;
       }
       .yellow {
-        background-color: #f4b042;
+        background-color: #4ca2cd;
       }
       .message {
         color: white;
-        font-size: 40px;
+        font-size: 5vw;
+        font-weight: bolder;
         text-align: center;
         padding: 20px 0 50px;
       }
       .mission {
         background-color: white;
         border-radius: 10px;
-        padding: 20px;
+        padding: 3vw;
+        margin-bottom: 50px;
+        line-height: 160%;
       }
       img {
         border-radius: 10px;
+        width: 100%;
       }
-      a {
-        text-decoration: none;
-      }
+
       h1 {
-        font-size: 28px;
+        font-size: 4vw;
       }
       h3 {
-        font-size: 20px;
+        font-size: 3vw;
       }
       span {
-        font-size: 15px;
+        font-size: 1.5vw;
+      }
+      button {
+        width: 60%;
+        font-size: 4vw;
+        margin: 20px 0;
+        background-color: #008CBA;
+        color: white;
+        padding: 30px 0;
+      }
+      .btn {
+        text-align: center;
       }
     </style>
   </head>
   <body class="blue">
     <div class="message">
       <div>a11y homework</div>
-      <img src="//develop-with-google-kor.github.io/a11y/homework/unknown-image.jpg" width="500px">
+      <img src="./unknown-image.jpg" alt="Google propeller hat">
     </div>
     <div class="mission">
       <h1>미션</h1>
@@ -69,10 +82,10 @@
       </div>
       <h3>명암비가 너무 낮은 글씨</h3>
       <div>
-        <span id="contrast" style="color:#DBDBDB" >이 문단의 글씨는 저시력자 분들이 보기에는 배경 색과 글자의 색 차이가 별로 나지 않습니다. 저 시력자 분들도 잘 볼 수 있도록 적절하게 색과 크기를 적절히  조정해 주세요.</span>
+        <span id="contrast" >이 문단의 글씨는 저시력자 분들이 보기에는 배경 색과 글자의 색 차이가 별로 나지 않습니다. 저 시력자 분들도 잘 볼 수 있도록 적절하게 색과 크기를 적절히 조정해 주세요.</span>
       </div>
-      <div>
-        <button OnClick="javascript:blurToggle()"> 저시력자 체험하기</button>
+      <div class="btn">
+        <button OnClick="javascript:blurToggle()">저시력자 체험하기</button>
       </div>
       <h3>그 외..</h3>
       <div>
@@ -81,26 +94,27 @@
     </div>
   </body>
   <script>
-var blurToggle = (function() {
-  var is_blured = false;
-  return function() {
-    var filter = "";
-    if (!is_blured) {
-      filter = "blur(2px)";
-    }
-    document.getElementById("contrast").style.filter = filter;
-    is_blured = !is_blured;
-  }
-})();
+    var blurToggle = (function() {
+      var is_blured = false;
+      return function() {
+        var filter = "";
+        if (!is_blured) {
+          filter = "blur(2px)";
+        }
+        document.getElementById("contrast").style.filter = filter;
+        is_blured = !is_blured;
+      }
+    })();
 
-var bgChanger = (function() {
-  var colors = ["blue", "red", "yellow"];
-  var idx = 0;
-  return function() {
-    idx = (idx + 1) % 3;
-    document.body.className = colors[idx];
-  }
-})();
-window.setInterval(bgChanger, 100);
+    var bgChanger = (function() {
+      var colors = ["blue", "red", "yellow"];
+      var idx = 0;
+      return function() {
+        idx = (idx + 1) % 3;
+        document.body.className = colors[idx];
+      }
+    })();
+
+    window.setInterval(bgChanger, 5000);
   </script>
 </html>
